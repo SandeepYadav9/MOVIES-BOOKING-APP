@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  align-items: center;
+  height: 200px;
+  overflow-y: hidden;
+  text-align: left;
+  flex-flow: row wrap;
+}
+.releasedmovie {
+  display: flex;
+  margin: 16px;
+  width: 100%;
+}
+.poster {
+  height: 90%;
+}
+.posterList {
+  display: flex;
+  flex-direction: row;
+}
+.flex-container {
+  width: 76%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  
+}
+.left {
+  width: 24%;
+}

@@ -6,14 +6,21 @@
 .image {
   background-color: #ff7f7f;
   height: 35px;
+  margin-left: 10px;
   animation-name: linear;
-  animation-delay: 8s;
+  animation-duration: 8s;
 }
 @keyframes image {
   from {
-    transform: rotate(0deg);
+    transform: rotate(10deg);
   }
   to {
     transform: rotate(360deg);
   }
+}
+.upcomming-Movies {
+  background-color: #ff9999;
+  padding: 8px;
+  text-align: center;
+  font-size: 1rem;
 }
