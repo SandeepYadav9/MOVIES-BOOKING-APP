@@ -39,7 +39,7 @@ class Home extends Component {
           <div className="left">
             <ImageList className="movieImage" cols={3}  rowHeight={400}>
               {moviesData.map((movie) => (
-                <ImageListItem>
+                <ImageListItem style={{width:"300px"}}>
                   <img src={movie.poster_url} alt={movie.title} />
                   <ImageListItemBar
                     title={movie.title}
@@ -56,7 +56,56 @@ class Home extends Component {
           </div>
 
           <div className="right">
-            <h1>Card</h1>
+            <Card>
+              <CardContent>
+                <FormControl className="formControl">
+                  <Typography color="primary" style={{textAlign:"center", color:"theme.spacing.unit"}}>Find Movies By:</Typography>
+                </FormControl> <br />
+                <FormControl className="formControl">
+                  <InputLabel htmlFor="movieName">Movie Name</InputLabel>
+                  <Input id="movieName" onChange={this.movieNameChangeHandler}/>
+                </FormControl> <br />
+                <FormControl className="formControl">
+                  <InputLabel htmlFor="genreList">Genre</InputLabel>
+                  <Select multiple
+                  input={<Input id="genreList"/>}>
+                    ListofData
+                  </Select>
+                </FormControl><br />
+                <FormControl className="formControl">
+                  <InputLabel htmlFor="artistList">Artist</InputLabel>
+                  <Select multiple
+                  input={<Input id="artistList"/>}>
+                    ArtistData
+                  </Select>
+                </FormControl> <br />
+                <FormControl className="formControl">
+                  <TextField
+                    id="releaseDateStart"
+                    label="Release Date Start"
+                    type="date"
+                    defaultValue=""
+                    InputLabelProps={{ shrink: true }}
+                    onChange={this.releaseDateStartHandler}
+                  />
+                </FormControl>
+                <FormControl className="formControl">
+                  <TextField
+                    id="releaseDateEnd"
+                    label="Release Date End"
+                    type="date"
+                    defaultValue=""
+                    InputLabelProps={{ shrink: true }}
+                    onChange={this.releaseDateEndHandler}
+                  />
+                </FormControl><br /><br />
+                <FormControl className="formControl">
+                  <Button variant="contained" color="primary">
+                    APPLY
+                    </Button>
+                </FormControl>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>

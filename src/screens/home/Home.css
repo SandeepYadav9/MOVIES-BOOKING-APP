@@ -16,4 +16,8 @@
 }
 
 .movieImage {
+  width: 100%;
+}
+.formControl{
+  width: 240px;
 }
