@@ -16,11 +16,14 @@ import {
   TextField,
 } from "@material-ui/core";
 import React, { Component } from "react";
-import genres from "../../common/header/genres";
+
 import Header from "../../common/header/Header";
 import moviesData from "../../common/header/moviesData";
 import "./Home.css";
 class Home extends Component {
+  movieClickHandler = (movieId) => {
+    this.props.history.push("/movie/" + movieId);
+  };
   render() {
     return (
       <div className="main">
@@ -37,9 +40,14 @@ class Home extends Component {
         </div>
         <div className="flex-container">
           <div className="left">
-            <ImageList className="movieImage" cols={3}  rowHeight={400}>
+            <ImageList className="movieImage" cols={3} rowHeight={400}>
               {moviesData.map((movie) => (
-                <ImageListItem style={{width:"300px"}}>
+                <ImageListItem
+                  style={{ width: "300px" }}
+                  onClick={() => {
+                    this.movieClickHandler(movie.id);
+                  }}
+                >
                   <img src={movie.poster_url} alt={movie.title} />
                   <ImageListItemBar
                     title={movie.title}
@@ -59,26 +67,36 @@ class Home extends Component {
             <Card>
               <CardContent>
                 <FormControl className="formControl">
-                  <Typography color="primary" style={{textAlign:"center", color:"theme.spacing.unit"}}>Find Movies By:</Typography>
-                </FormControl> <br />
+                  <Typography
+                    color="primary"
+                    style={{ textAlign: "center", color: "theme.spacing.unit" }}
+                  >
+                    Find Movies By:
+                  </Typography>
+                </FormControl>{" "}
+                <br />
                 <FormControl className="formControl">
                   <InputLabel htmlFor="movieName">Movie Name</InputLabel>
-                  <Input id="movieName" onChange={this.movieNameChangeHandler}/>
-                </FormControl> <br />
+                  <Input
+                    id="movieName"
+                    onChange={this.movieNameChangeHandler}
+                  />
+                </FormControl>{" "}
+                <br />
                 <FormControl className="formControl">
                   <InputLabel htmlFor="genreList">Genre</InputLabel>
-                  <Select multiple
-                  input={<Input id="genreList"/>}>
+                  <Select multiple input={<Input id="genreList" />}>
                     ListofData
                   </Select>
-                </FormControl><br />
+                </FormControl>
+                <br />
                 <FormControl className="formControl">
                   <InputLabel htmlFor="artistList">Artist</InputLabel>
-                  <Select multiple
-                  input={<Input id="artistList"/>}>
+                  <Select multiple input={<Input id="artistList" />}>
                     ArtistData
                   </Select>
-                </FormControl> <br />
+                </FormControl>{" "}
+                <br />
                 <FormControl className="formControl">
                   <TextField
                     id="releaseDateStart"
@@ -98,11 +116,13 @@ class Home extends Component {
                     InputLabelProps={{ shrink: true }}
                     onChange={this.releaseDateEndHandler}
                   />
-                </FormControl><br /><br />
+                </FormControl>
+                <br />
+                <br />
                 <FormControl className="formControl">
                   <Button variant="contained" color="primary">
                     APPLY
-                    </Button>
+                  </Button>
                 </FormControl>
               </CardContent>
             </Card>

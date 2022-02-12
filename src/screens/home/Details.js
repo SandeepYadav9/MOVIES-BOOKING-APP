@@ -1,6 +1,5 @@
 import React from "react";
 
-import ReleasedMovie from "./ReleasedMovie";
 
 function Details(props) {
   return (
