@@ -1,15 +1,22 @@
 import {
-  Button,
+  MenuItem,
+  Checkbox,
+  ListItemText,
   Card,
   CardContent,
-  CardHeader,
   ImageList,
   ImageListItem,
   ImageListItemBar,
-  
+  FormControl,
+  Select,
+  Typography,
+  InputLabel,
+  Input,
+  Button,
   TextField,
 } from "@material-ui/core";
 import React, { Component } from "react";
+import genres from "../../common/header/genres";
 import Header from "../../common/header/Header";
 import moviesData from "../../common/header/moviesData";
 import "./Home.css";
@@ -28,70 +35,28 @@ class Home extends Component {
             ))}
           </ImageList>
         </div>
-        <div className="releasedmovie">
-          <div className="flex-container">
-            <ImageList cols={0}>
+        <div className="flex-container">
+          <div className="left">
+            <ImageList className="movieImage" cols={3}  rowHeight={400}>
               {moviesData.map((movie) => (
-                <img src={movie.poster_url} alt="" style={{ height: "auto" }} />
+                <ImageListItem>
+                  <img src={movie.poster_url} alt={movie.title} />
+                  <ImageListItemBar
+                    title={movie.title}
+                    subtitle={
+                      <span>
+                        Release Date:{" "}
+                        {new Date(movie.release_date).toDateString()}
+                      </span>
+                    }
+                  />
+                </ImageListItem>
               ))}
             </ImageList>
           </div>
-          <div className="left" >
-            <Card  style={{minWidth: "240px", maxWidth:"240px"}}>
-              <CardHeader title="FIND MOVIES BY:" />
-              <CardContent>
-                <TextField
-                  id="standard-basic"
-                  label="Movie Name"
-                  variant="standard"
-                />{" "}
-                <br />
-                <TextField
-                  select
-                  id="standard-basic"
-                  label="Genres"
-                  variant="standard"
-                  variant="standard"
-                  style={{ width: "93%" }}
-                />{" "}
-                <br />
-                <TextField
-                  select
-                  id="standard-basic"
-                  label="Artists"
-                  variant="standard"
-                  style={{ width: "93%" }}
-                />{" "}
-                <br />
-                <div>
-                  <label htmlFor="standard-basic"> Release Data Start</label>
-                  <br />
-                  <TextField
-                    type="date"
-                    id="standard-basic"
-                    variant="standard"
-                    variant="standard"
-                    style={{ width: "93%" }}
-                  />
-                </div>{" "}
-                <br />
-                <div>
-                  <label htmlFor="standard-basic"> Release Data End</label>
-                  <br />
-                  <TextField
-                    type="date"
-                    id="standard-basic"
-                    variant="standard"
-                    variant="standard"
-                    style={{ width: "93%" }}
-                  />
-                </div><br />
-                <div>
-                  <Button variant="standard" color="primary"
-                style={{width:"93%"}} variant="contained">Apply</Button>
-                </div>
-              </CardContent>
-            </Card>
+
+          <div className="right">
+            <h1>Card</h1>
           </div>
         </div>
       </div>

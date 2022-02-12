@@ -8,26 +8,12 @@
   text-align: left;
   flex-flow: row wrap;
 }
-.releasedmovie {
-  display: flex;
-  margin: 16px;
-  width: 100%;
-}
-.poster {
-  height: 90%;
-}
-.posterList {
-  display: flex;
-  flex-direction: row;
-}
 .flex-container {
-  width: 76%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  
-  
+  margin: 16px;
+
+  display: grid;
+  grid-template-columns: 76% 24%;
 }
-.left {
-  width: 24%;
+
+.movieImage {
 }
