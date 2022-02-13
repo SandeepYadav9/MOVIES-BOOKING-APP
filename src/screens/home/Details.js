@@ -1,13 +1,20 @@
-import React from "react";
+import React from 'react'
+import Header from '../../common/header/Header'
+import moviesData from '../../common/header/moviesData'
 
 
-function Details(props) {
+function Details() {
+  
   return (
     <div>
-      <h1>hi</h1>
-      
+      {moviesData.map((movie)=>(
+        <div key={movie.id}>
+
+          <h1>{movie.title}</h1>
+        </div>
+      ))}
     </div>
-  );
+  )
 }
 
-export default Details;
+export default Details

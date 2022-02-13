@@ -11,9 +11,7 @@ class Header extends Component {
             className="image"
           />
         </div>
-        <div className="upcomming-Movies">
-        <span>Upcoming Movies</span>
-        </div>
+        
        
       </div>
     );
