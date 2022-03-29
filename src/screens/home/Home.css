@@ -1,31 +1,43 @@
-.container {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-around;
-  align-items: center;
-  height: 200px;
-  overflow-y: hidden;
-  text-align: left;
-  flex-flow: row wrap;
+  
+.upcoming-movies-header {
+  background-color: #ff9999;
+  padding: 8px;
+  text-align: center;
+  font-size: 1rem;
 }
-.flex-container {
-  margin: 16px;
-  display: grid;
-  grid-template-columns:76% 24%;  
-}
-@media screen and (min-width: 600px) {
-  .flex-container{
-    grid-template-columns: 1fr 300px;
 
-  }  
+.flex-container {
+  display: flex;
 }
-.movieImage {
-  width: 100%;
-}
-.formControl {
-  width: 240px;
-}
+
+.left,
 .right {
-  padding: 10px;
-  margin: 10px;
+  margin: 16px;
+}
+
+.left {
+  flex-basis: 76%;
+}
+
+.right {
+  flex-basis: 24%;
+}
+
+.released-movie-grid-item {
+  margin: 15px;
+}
+
+@media (max-width: 992px) {
+  .flex-container {
+      flex-direction: column;
+  }
+  .left {
+      width: 100%;
+  }
+  .right {
+      width: 90%;
+  }
+  .released-movie-grid-item {
+      margin: 8px;
+  }
 }
